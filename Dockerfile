@@ -4,3 +4,5 @@ FROM alpine:3.3
 RUN apk add --no-cache docker python py-pip git && \
   pip install awscli && \
   apk del py-pip
+
+RUN apk add --no-cache nodejs && npm install -g nightwatch
