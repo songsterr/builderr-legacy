@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:6.6.0
 
-RUN apk add --no-cache docker python py-pip git curl ca-certificates && \
+RUN apk add --no-cache docker python py-pip git curl ca-certificates jq && \
   pip install awscli && \
   apk del py-pip
 
