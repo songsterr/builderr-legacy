@@ -1,8 +1,9 @@
-FROM mhart/alpine-node:6.9.1
+FROM mhart/alpine-node:7.6.0
 
 RUN apk add --no-cache --update docker python py-pip git curl ca-certificates alpine-sdk jq && \
   pip install awscli && \
-  apk del py-pip
+  apk del py-pip && \
+  npm install -g yarn
 
 # Install kubectl
 # Note: Latest version may be found on:
