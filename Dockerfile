@@ -1,9 +1,13 @@
-FROM mhart/alpine-node:7.6.0
+FROM mhart/alpine-node:7.7.2
 
-RUN apk add --no-cache --update docker python py-pip git curl ca-certificates alpine-sdk jq && \
+RUN apk add --no-cache --update docker python ansible py-pip git curl ca-certificates alpine-sdk jq && \
   pip install awscli && \
-  apk del py-pip && \
-  npm install -g yarn
+  npm install -g yarn && \
+  apk del py-pip
+
+RUN  mkdir /root/.ssh/ && echo -e 'StrictHostKeyChecking no\n' > /root/.ssh/config && chmod 0600 /root/.ssh/config && \
+  touch /root/.ssh/id_songsterr_deploy && chmod 0600 /root/.ssh/id_songsterr_deploy && \
+  mkdir /etc/ansible/ && echo -e "[defaults]\nhost_key_checking = False\ncallback_whitelist = profile_tasks\n" > /etc/ansible/ansible.cfg  && chmod 0600 /etc/ansible/ansible.cfg
 
 # Install kubectl
 # Note: Latest version may be found on:
