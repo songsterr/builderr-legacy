@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:7.7.2
 
 RUN apk add --no-cache --update docker python ansible py-pip git curl ca-certificates alpine-sdk jq && \
-  pip install awscli && \
+  pip install awscli paramiko && \
   npm install -g yarn && \
   apk del py-pip
 
