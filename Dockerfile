@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:9.6.1-alpine
 
 RUN apk add --no-cache --update docker python py-pip git curl ca-certificates alpine-sdk jq && \
   pip install awscli && \
