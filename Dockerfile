@@ -1,4 +1,4 @@
-FROM node:10.10.0-alpine
+FROM mhart/alpine-node:10
 
 RUN apk add --no-cache --update docker python py-pip git curl ca-certificates alpine-sdk jq && \
   pip install awscli && \
